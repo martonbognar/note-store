@@ -16,7 +16,7 @@ module.exports = function (app) {
   app.get('/user/:id',
     getUserById(objectRepository),
     getNoteList(objectRepository),
-    renderTemplate(objectRepository, 'user_profile'),
+    renderTemplate(objectRepository, 'user'),
   );
 
   app.get('/note/:id',

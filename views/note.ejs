@@ -1,0 +1,11 @@
+<%- include('includes/header', {}); %>
+<div id='header'>
+  <h2><%= note.title %></h2>
+</div>
+<div id='main'>
+  <span class='info'><%= note.dateString %> • <%= note.views %> megtekintés</span>
+  <a href='#'>Szerkesztés</a>
+  <%= note.body %>
+  <span class='user'><a href='/user/<%= note.user.id %>'><%= note.user.name %></a></span>
+</div>
+<%- include('includes/footer', {}); %>

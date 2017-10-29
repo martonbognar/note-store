@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 
+app.set('view engine', 'ejs');
+
 // create a payload object for middlewares
 app.use(function (request, response, next) {
   response.payload = {};

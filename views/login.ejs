@@ -1,0 +1,13 @@
+<%- include('includes/header', {}); %>
+<div id='header'>
+  <h2>Bejelentkezés</h2>
+</div>
+<div id='main'>
+  <form method='post'>
+    <input type='text' placeholder='E-mail cím'><br>
+    <input type='password' placeholder='Jelszó'><br>
+    <input type='submit' value='Belépés'>
+  </form>
+  <span class='info'><a href='/passwordreset'>Elfelejtett jelszó</a> • <a href='/register'>Regisztráció</a></span>
+</div>
+<%- include('includes/footer', {}); %>

@@ -3,6 +3,6 @@
  */
 module.exports = function (objectRepository, templateName) {
   return function (request, response, next) {
-    response.end('render: ' + templateName);
+    response.render(templateName, response.payload);
   };
 };

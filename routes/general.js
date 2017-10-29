@@ -9,11 +9,14 @@ let logoutUser = require('../middlewares/users/logoutUser');
 let registerUser = require('../middlewares/users/registerUser');
 let resetPassword = require('../middlewares/users/resetPassword');
 
+let getNoteList = require('../middlewares/notes/getNoteList');
+
 module.exports = function (app) {
 
   let objectRepository = {};
 
   app.get('/',
+    getNoteList(objectRepository),
     renderTemplate(objectRepository, 'index'),
   );
 
@@ -44,12 +47,12 @@ module.exports = function (app) {
 
   app.get('/passwordreset',
     checkNotLoggedIn(objectRepository),
-    renderTemplate(objectRepository, 'reset_password'),
+    renderTemplate(objectRepository, 'reset'),
   );
   app.post('/passwordreset',
     checkNotLoggedIn(objectRepository),
     resetPassword(objectRepository),
-    renderTemplate(objectRepository, 'reset_password'),
+    renderTemplate(objectRepository, 'reset'),
   );
 
 };

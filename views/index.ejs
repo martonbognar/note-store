@@ -1,0 +1,18 @@
+<%- include('includes/header', {}); %>
+<div id='header'>
+  <select>
+    <option disabled selected>Rendezés</option>
+    <option>Időrend</option>
+    <option>Népszerűség</option>
+  </select>
+</div>
+<div id='main'>
+  <% notes.forEach(function(note) { %>
+    <div class='note-preview'>
+        <h3><a href='/note/<%= note.id %>'><%= note.title %></a></h3>
+        <a href='/user/<%= note.user.id %>'><%= note.user.name %></a>
+        <span class='info'><%= note.dateString %> • <%= note.views %> megtekintés</span>
+      </div>
+  <% }); %>
+</div>
+<%- include('includes/footer', {}); %>
