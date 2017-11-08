@@ -1,5 +1,5 @@
-var express = require('express');
-var app = express();
+const express = require('express');
+const app = express();
 
 app.set('view engine', 'ejs');
 
@@ -22,6 +22,6 @@ app.use(function (error, request, response, next) {
 
 app.use(express.static('static'));
 
-var server = app.listen(3000, function () {
+const server = app.listen(3000, function () {
   console.log("Running on port 3000.")
 });
