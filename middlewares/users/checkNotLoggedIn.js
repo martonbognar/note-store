@@ -3,6 +3,10 @@
  */
 module.exports = function (objectRepository, templateName) {
   return function (request, response, next) {
-    return next();
+    if (typeof request.session.userid === undefined) {
+      return next();
+    } else {
+      return response.redirect('/user/' + request.session.userid);
+    }
   };
 };

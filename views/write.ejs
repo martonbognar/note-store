@@ -1,10 +1,10 @@
 <%- include('includes/header', {}); %>
 <div id='header'>
-  <input type='text' placeholder='Cím'>
+  <input type='text' placeholder='Cím' form='new-note' name='title'>
 </div>
 <div id='main'>
-  <form>
-    <textarea placeholder='Szövegtörzs'></textarea>
+  <form id='new-note' method='post'>
+    <textarea required placeholder='Szövegtörzs' name='body'></textarea>
     <input type='submit' value='Mentés'>
   </form>
 </div>
