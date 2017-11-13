@@ -20,6 +20,7 @@ module.exports = function (objectRepository, templateName) {
         console.log("set id to " + request.session.userid);
         return response.redirect('/user/' + user.id);
       } else {
+        console.log("user not found");
         return next();
       }
     });

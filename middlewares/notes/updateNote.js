@@ -16,7 +16,7 @@ module.exports = function (objectRepository, templateName) {
       note.body = request.body.body;
 
       User.findById(request.session.userid, function (error, user) {
-        note._user = user;
+        note.user = user;
         console.log(user);
       });
 
@@ -24,6 +24,8 @@ module.exports = function (objectRepository, templateName) {
         if (error) {
           return next(error);
         }
+
+        console.log(result);
 
         return response.redirect('/note/' + result.id);
       });

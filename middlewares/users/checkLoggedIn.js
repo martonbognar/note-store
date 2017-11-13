@@ -3,7 +3,7 @@
  */
 module.exports = function (objectRepository, templateName) {
   return function (request, response, next) {
-    if (typeof request.session.userid !== undefined) {
+    if (request.session.userid !== undefined) {
       return next();
     } else {
       return response.redirect('/login');

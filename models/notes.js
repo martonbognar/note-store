@@ -2,15 +2,22 @@ const Schema = require('mongoose').Schema;
 const db = require('../config/db');
 
 const Note = db.model('Note', {
-  title: String,
-  body: String,
+  title: {
+    type: String,
+    required: true,
+  },
+  body: {
+    type: String,
+    required: true,
+  },
   viewCount: {
     type: Number,
     default: 0,
   },
-  _user: {
+  user: {
     type: Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'User',
+    required: true,
   },
 });
 
