@@ -3,6 +3,14 @@
  */
 module.exports = function (objectRepository, templateName) {
   return function (request, response, next) {
-    return next();
+    Note.findById(request.params.id, function (error, note) {
+      note.remove(function (error) {
+        if (error) {
+          return next(error);
+        }
+
+        return next();
+      });
+    });
   };
 };

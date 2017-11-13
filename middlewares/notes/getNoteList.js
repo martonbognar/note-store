@@ -3,20 +3,32 @@
  * get the notes of that user
  */
 module.exports = function (objectRepository, templateName) {
+
+  const Note = require('../../models/notes');
+
   return function (request, response, next) {
 
-    // dummy data
-    response.payload.notes = [{
-      id: 1,
-      title: "Jegyzet",
-      body: "LOrem ipsum",
-      views: 112,
-      dateString: "2 napja",
-      user: {
-        id: 1,
-        name: "Gipsz Jakab",
-      }
-    }];
+    if (typeof response.payload.user !== undefined) {
+      // get notes of one user
+      Note.find({user: response.payload.user}, function(error, noteList) {
+        if (error) {
+          return next(error);
+        }
+
+        console.log(noteList);
+        response.payload.notes = noteList;
+      });
+    } else {
+      // get all notes
+      Note.find({}, function(error, noteList) {
+        if (error) {
+          return next(error);
+        }
+
+        console.log(noteList);
+        response.payload.notes = noteList;
+      });
+    }
 
     return next();
   };

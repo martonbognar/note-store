@@ -3,7 +3,6 @@ let renderTemplate = require('../middlewares/generic/renderTemplate');
 let checkLoggedIn = require('../middlewares/users/checkLoggedIn');
 let checkNotLoggedIn = require('../middlewares/users/checkNotLoggedIn');
 let getUserById = require('../middlewares/users/getUserById');
-let getUserList = require('../middlewares/users/getUserList');
 let loginUser = require('../middlewares/users/loginUser');
 let logoutUser = require('../middlewares/users/logoutUser');
 let registerUser = require('../middlewares/users/registerUser');
