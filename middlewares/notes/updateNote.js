@@ -18,16 +18,16 @@ module.exports = function (objectRepository, templateName) {
       User.findById(request.session.userid, function (error, user) {
         note.user = user;
         console.log(user);
-      });
 
-      note.save(function (error, result) {
-        if (error) {
-          return next(error);
-        }
+        note.save(function (error, result) {
+          if (error) {
+            return next(error);
+          }
 
-        console.log(result);
+          console.log(result);
 
-        return response.redirect('/note/' + result.id);
+          return response.redirect('/note/' + result.id);
+        });
       });
     } else {
       console.log("Updating a note");
