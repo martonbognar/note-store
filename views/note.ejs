@@ -6,6 +6,7 @@
   <span class='info'><%= note.dateString %> • <%= note.viewCount %> megtekintés</span>
   <% if (userid === note.user.id) { %>
     <button id='editButton'>Szerkesztés</button>
+    <button id='deleteButton' data-note-id='<%= note.id %>'>Törlés</button>
   <% } %>
   <div id='post-body'>
     <%= note.body %>

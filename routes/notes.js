@@ -32,9 +32,7 @@ module.exports = function (app) {
 
   app.get('/note/delete/:id',
     checkLoggedIn(objectRepository),
-    getNoteById(objectRepository),
-    deleteNoteById(objectRepository),
-    renderTemplate(objectRepository, 'index'),
+    deleteNoteById(objectRepository)
   );
 
   app.get('/write',

@@ -39,3 +39,12 @@ if (editButton !== null) {
     transformToEdit();
   });
 }
+
+let deleteButton = document.getElementById('deleteButton');
+if (deleteButton !== null) {
+  deleteButton.addEventListener('click', function (event) {
+    let noteId = this.getAttribute('data-note-id');
+    console.log(noteId);
+    window.location.href = '/note/delete/' + noteId;
+  });
+}
