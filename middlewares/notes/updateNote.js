@@ -25,7 +25,20 @@ module.exports = function (objectRepository, templateName) {
         });
       });
     } else {
-      return next();
+      console.log('updating note');
+      let title = request.body.title;
+      let body = request.body.body;
+
+      response.payload.note.title = title;
+      response.payload.note.body = body;
+
+      response.payload.note.save(function (error, result) {
+        if (error) {
+          return next(error);
+        }
+
+        return next();
+      });
     }
   };
 };

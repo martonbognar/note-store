@@ -7,5 +7,9 @@
   <body>
     <nav>
       <h1><a href='/'>Jegyzetek</a></h1>
-      <a href='/login'>Bejelentkezés</a>
+      <% if (userid !== undefined) {%>
+        <a href='/logout'>Kijelentkezés</a>
+      <% } else { %>
+        <a href='/login'>Bejelentkezés</a>
+      <% } %>
     </nav>

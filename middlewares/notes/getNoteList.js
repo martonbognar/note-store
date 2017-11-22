@@ -7,7 +7,6 @@ module.exports = function (objectRepository, templateName) {
   const Note = require('../../models/notes');
 
   return function (request, response, next) {
-
     if (response.payload.user !== undefined) {
       // get notes of one user
       Note.find({user: response.payload.user}, function(error, noteList) {

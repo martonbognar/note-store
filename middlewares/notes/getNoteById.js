@@ -6,8 +6,12 @@ module.exports = function (objectRepository, templateName) {
   const Note = require('../../models/notes');
 
   return function (request, response, next) {
+    Note.findById(request.params.id).populate('user').exec(function(error, note) {
+      if (error) {
+        return next(error);
+      }
 
-    Note.findById(request.params.id, function (error, note) {
+      note.updateViewCount();
       response.payload.note = note;
       return next();
     });

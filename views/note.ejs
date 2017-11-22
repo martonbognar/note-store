@@ -4,8 +4,13 @@
 </div>
 <div id='main'>
   <span class='info'><%= note.dateString %> • <%= note.viewCount %> megtekintés</span>
-  <a href='#'>Szerkesztés</a>
-  <%= note.body %>
+  <% if (userid === note.user.id) { %>
+    <button id='editButton'>Szerkesztés</button>
+  <% } %>
+  <div id='post-body'>
+    <%= note.body %>
+  </div>
   <span class='user'><a href='/user/<%= note.user.id %>'><%= note.user.name %></a></span>
 </div>
+<script src='/js/edit.js'></script>
 <%- include('includes/footer', {}); %>
