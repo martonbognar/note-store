@@ -31,7 +31,8 @@ noteSchema.methods.updateViewCount = function() {
 };
 
 noteSchema.methods.getPrettyDate = function() {
-
+  let diffSeconds = (Date.now() - this.creation) / 1000;
+  return diffSeconds + " seconds ago";
 };
 
 const Note = db.model('Note', noteSchema);

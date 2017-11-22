@@ -8,8 +8,8 @@
     <button id='editButton'>Szerkesztés</button>
     <button id='deleteButton' data-note-id='<%= note.id %>'>Törlés</button>
   <% } %>
-  <div id='post-body'>
-    <%= note.body %>
+  <div id='post-body' data-encoded='<%= note.base64 %>'>
+    <%- note.parsedHTML %>
   </div>
   <span class='user'><a href='/user/<%= note.user.id %>'><%= note.user.name %></a></span>
 </div>

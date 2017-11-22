@@ -3,7 +3,7 @@ function transformToEdit() {
   let body = document.getElementById('post-body');
 
   let title = header.getElementsByTagName('h2')[0].textContent;
-  let post = body.innerHTML;
+  let post = body.getAttribute('data-encoded');
   while (header.hasChildNodes()) {
     header.removeChild(header.lastChild);
   }
@@ -21,7 +21,7 @@ function transformToEdit() {
   editForm.method = 'post';
 
   let textarea = document.createElement('textarea');
-  textarea.appendChild(document.createTextNode(post));
+  textarea.appendChild(document.createTextNode(atob(post)));
   textarea.name = 'body';
   editForm.appendChild(textarea);
 
