@@ -7,7 +7,7 @@
   <% notes.forEach(function(note) { %>
     <div class='note-preview'>
       <h3><a href='/note/<%= note.id %>'><%= note.title %></a></h3>
-      <span class='info'><%= note.dateString %> • <%= note.views %> megtekintés</span>
+      <span class='info'><%= note.dateString %> • <%= note.viewCount %> megtekintés</span>
     </div>
   <% }); %>
 </div>

@@ -9,9 +9,7 @@ module.exports = function (objectRepository, templateName) {
 
     User.findById(request.params.id, function (error, user) {
       response.payload.user = user;
-      console.log(user);
+      return next();
     });
-
-    return next();
   };
 };

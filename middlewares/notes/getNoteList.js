@@ -8,28 +8,26 @@ module.exports = function (objectRepository, templateName) {
 
   return function (request, response, next) {
 
-    if (typeof response.payload.user !== undefined) {
+    if (response.payload.user !== undefined) {
       // get notes of one user
       Note.find({user: response.payload.user}, function(error, noteList) {
         if (error) {
           return next(error);
         }
 
-        console.log(noteList);
         response.payload.notes = noteList;
+        return next();
       });
     } else {
       // get all notes
-      Note.find({}, function(error, noteList) {
+      Note.find({}).populate('user').exec(function(error, noteList) {
         if (error) {
           return next(error);
         }
 
-        console.log(noteList);
         response.payload.notes = noteList;
+        return next();
       });
     }
-
-    return next();
   };
 };

@@ -9,28 +9,22 @@ module.exports = function (objectRepository, templateName) {
 
   return function (request, response, next) {
     if (response.payload.note === undefined) {
-      console.log("creating, id:");
-      console.log(request.session.userid);
       let note = new Note();
       note.title = request.body.title;
       note.body = request.body.body;
 
       User.findById(request.session.userid, function (error, user) {
         note.user = user;
-        console.log(user);
 
         note.save(function (error, result) {
           if (error) {
             return next(error);
           }
 
-          console.log(result);
-
           return response.redirect('/note/' + result.id);
         });
       });
     } else {
-      console.log("Updating a note");
       return next();
     }
   };

@@ -11,7 +11,7 @@
     <div class='note-preview'>
         <h3><a href='/note/<%= note.id %>'><%= note.title %></a></h3>
         <a href='/user/<%= note.user.id %>'><%= note.user.name %></a>
-        <span class='info'><%= note.dateString %> • <%= note.views %> megtekintés</span>
+        <span class='info'><%= note.dateString %> • <%= note.viewCount %> megtekintés</span>
       </div>
   <% }); %>
 </div>
