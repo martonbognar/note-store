@@ -1,10 +1,12 @@
 <%- include('includes/header', {}); %>
 <div id='header'>
-  <select>
-    <option disabled selected>Rendezés</option>
-    <option>Időrend</option>
-    <option>Népszerűség</option>
-  </select>
+  <form>
+    <select name='order' onchange='this.form.submit();'>
+      <option disabled selected>Rendezés</option>
+      <option value='date'>Időrend</option>
+      <option value='popularity'>Népszerűség</option>
+    </select>
+  </form>
 </div>
 <div id='main'>
   <% notes.forEach(function(note) { %>

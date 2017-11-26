@@ -14,15 +14,29 @@ module.exports = function (objectRepository, templateName) {
           return next(error);
         }
 
+        noteList.forEach(function (note) {
+          note.dateString = note.getPrettyDate();
+        });
+
         response.payload.notes = noteList;
         return next();
       });
     } else {
+      let order = {};
+      if (request.query.order === 'popularity') {
+        order = {viewCount: 'descending'};
+      } else {
+        order = {creation: 'descending'};
+      }
       // get all notes
-      Note.find({}).populate('user').exec(function(error, noteList) {
+      Note.find({}).sort(order).populate('user').exec(function(error, noteList) {
         if (error) {
           return next(error);
         }
+
+        noteList.forEach(function (note) {
+          note.dateString = note.getPrettyDate();
+        });
 
         response.payload.notes = noteList;
         return next();
