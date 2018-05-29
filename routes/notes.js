@@ -27,6 +27,7 @@ module.exports = function (app) {
     checkLoggedIn(objectRepository),
     getNoteById(objectRepository),
     updateNote(objectRepository),
+    getNoteById(objectRepository),
     renderTemplate(objectRepository, 'note'),
   );
 
